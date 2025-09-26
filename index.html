@@ -1,236 +1,351 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Intwana — Hub for Creatives</title>
-  <meta name="description" content="Intwana — a hub to promote creativity, positivity and opportunity for artists and tech enthusiasts." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Intwana Yase Kasi - Real Kasi Stories</title>
+<style>
+  /* Base styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #121212;
+    color: #ccc;
+  }
+  a {
+    color: #f4c430;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    max-width: 960px;
+    margin: auto;
+    padding: 1rem;
+  }
 
-  <style>
-    /* ===== Intwana — single-file HTML + CSS (no JS) =====
-       Drop images into an /assets folder and name them: hero.jpg, logo.png, event1.jpg, project1.jpg
-       This file contains all styles inline so you can submit a single index.html to the hackathon.
-    */
-    :root{
-      --bg:#0f1724; /* dark navy */
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#ff7a59; /* warm orange */
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
-      --maxwidth:1100px;
-      color-scheme: dark;
-      font-family: 'Inter',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background: linear-gradient(180deg,#071026 0%, #071626 60%);
-      color: #e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-    .container{max-width:var(--maxwidth);margin:0 auto;padding:28px}
+  /* Navbar */
+  nav {
+    background-color: #000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav img {
+    height: 48px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+  nav ul li a:hover {
+    color: #f4c430;
+  }
 
-    /* NAV */
-    header{position:sticky;top:12px;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:14px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img{width:48px;height:48px;border-radius:10px;object-fit:cover}
-    .brand h1{font-size:18px;margin:0;letter-spacing:0.2px}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    nav a:hover{color:var(--accent)}
+  /* Hero */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 1rem;
+    background-color: #1a1a1a;
+    color: #f4c430;
+  }
+  .hero-text {
+    flex: 1 1 300px;
+    max-width: 500px;
+  }
+  .hero-text h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem;
+    font-weight: 900;
+  }
+  .hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .hero-text a.button {
+    background-color: #f4c430;
+    color: black;
+    padding: 0.8rem 2rem;
+    font-weight: bold;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  .hero-text a.button:hover {
+    background-color: #d4b020;
+  }
+  .hero-video {
+    flex: 1 1 400px;
+    max-width: 600px;
+  }
+  .hero-video iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+    border: none;
+  }
 
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:40px 10px}
-    .hero-inner{display:grid;grid-template-columns:1fr;gap:18px}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:18px;backdrop-filter: blur(6px);box-shadow: 0 6px 30px rgba(2,6,23,0.6)}
-    .eyebrow{color:var(--accent);font-weight:700;font-size:13px}
-    .hero h2{font-size:34px;margin:6px 0 0}
-    .hero p{color:var(--muted);margin:0}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-block;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff5a80);color:#08121a}
-    .btn-ghost{border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  /* Sections */
+  section {
+    padding: 3rem 1rem;
+  }
+  section h2 {
+    text-align: center;
+    color: #f4c430;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  .about p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #ddd;
+  }
 
-    .hero-media{height:260px;border-radius:14px;overflow:hidden;background-size:cover;background-position:center}
-    .hero-media .overlay{padding:18px;color:inherit}
+  /* Videos grid (static placeholders) */
+  .videos-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    max-width: 960px;
+    margin: auto;
+  }
+  .video-card {
+    background: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  }
+  .video-card iframe {
+    width: 100%;
+    height: 160px;
+    border: none;
+  }
+  .video-card p {
+    padding: 0.5rem 1rem;
+    color: #f4c430;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+  }
 
-    /* GRID SECTIONS */
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  /* Blog highlights */
+  .blog-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: auto;
+  }
+  .blog-card {
+    background: #222;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  }
+  .blog-card h4 {
+    color: #f4c430;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  .blog-card p {
+    color: #ddd;
+    font-size: 1rem;
+    margin: 0;
+  }
 
-    /* Cards */
-    .card{background:var(--card);padding:18px;border-radius:14px}
-    .card h3{margin:0 0 8px}
-    .muted{color:var(--muted);font-size:14px}
+  /* Newsletter */
+  .newsletter {
+    text-align: center;
+    color: #ccc;
+  }
+  .newsletter input[type="email"] {
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: none;
+    width: 250px;
+    max-width: 90%;
+    margin-right: 0.5rem;
+  }
+  .newsletter button {
+    background-color: #f4c430;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .newsletter button:hover {
+    background-color: #d4b020;
+  }
 
-    /* EVENTS */
-    .event-card{display:flex;gap:12px;align-items:center}
-    .event-thumb{width:86px;height:66px;border-radius:10px;overflow:hidden;flex-shrink:0;background-size:cover;background-position:center}
+  /* Contact form */
+  .contact-form {
+    max-width: 600px;
+    margin: auto;
+    color: #ccc;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: none;
+    background: #1a1a1a;
+    color: #ccc;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  .contact-form button {
+    background-color: #f4c430;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: black;
+    transition: background-color 0.3s ease;
+  }
+  .contact-form button:hover {
+    background-color: #d4b020;
+  }
 
-    /* Projects */
-    .project{border-radius:12px;overflow:hidden}
-    .project img{width:100%;height:160px;object-fit:cover;display:block}
-    .project .meta{padding:12px}
-
-    /* FOOTER */
-    footer{padding:28px 0;margin-top:32px;color:var(--muted)}
-    .socials{display:flex;gap:12px}
-
-    /* small screens */
-    @media (max-width:880px){
-      .grid-2{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .hero{padding:20px 4px}
-    }
-
-    /* small animations */
-    @keyframes slideUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-    .appear{animation:slideUp .6s both}
-  </style>
+  /* Footer */
+  footer {
+    background: #000;
+    text-align: center;
+    padding: 1rem 0;
+    color: white;
+  }
+  .social-icons a {
+    color: #f4c430;
+    margin: 0 0.75rem;
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+  .social-icons a:hover {
+    color: #d4b020;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="nav appear">
-        <div class="brand">
-          <img src="assets/logo.png" alt="Intwana logo" onerror="this.style.display='none'" />
-          <div>
-            <h1>Intwana</h1>
-            <div class="muted" style="font-size:12px">Creatives • Tech • Events</div>
-          </div>
-        </div>
-        <nav aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#events">Events</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero" style="margin-top:18px">
-        <div class="hero-inner">
-          <article class="hero-card appear">
-            <div class="eyebrow">Welcome to Intwana</div>
-            <h2>Hub for creativity & opportunity in the kasi.</h2>
-            <p class="muted">We showcase artists, host events, share resources and build community. Explore upcoming hackathons, gigs, and opportunities.</p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="#events">See events</a>
-              <a class="btn btn-ghost" href="#projects">Our projects</a>
-            </div>
-          </article>
+<nav>
+  <a href="#">
+    <img src="images/logo.png" alt="Intwana Logo">
+  </a>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-          <div class="hero-media project" style="background-image: url('assets/hero.jpg')">
-            <div class="overlay">
-              <h3 style="margin:0">Featured — Intwana Yase Kasi</h3>
-              <p class="muted" style="margin:6px 0 0">Bringing local creatives together through showcases and workshops.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT + QUICK LINKS -->
-      <section id="about" style="margin-top:26px" class="grid-2">
-        <div class="card appear">
-          <h3>About Intwana</h3>
-          <p class="muted">Intwana is a hybrid of an entertainment agency and a creation hub — we uplift local talent, provide production resources, and run community-focused events. Our goal is to make opportunities accessible in the township and beyond.</p>
-        </div>
-
-        <aside class="card appear">
-          <h3>Quick Links</h3>
-          <ul style="padding-left:20px;margin:6px 0;color:var(--muted)">
-            <li>Sign up for events</li>
-            <li>Book equipment</li>
-            <li>Apply for artist spotlight</li>
-          </ul>
-        </aside>
-      </section>
-
-      <!-- EVENTS -->
-      <section id="events" style="margin-top:24px">
-        <h2 style="margin:0 0 12px">Upcoming Events</h2>
-        <div class="grid-3">
-          <article class="card event-card appear">
-            <div class="event-thumb" style="background-image:url('assets/event1.jpg')"></div>
-            <div>
-              <h3 style="margin:0;font-size:16px">Open Mic Night</h3>
-              <div class="muted">Oct 3, 7:00 PM — Community Hall</div>
-            </div>
-          </article>
-
-          <article class="card event-card appear">
-            <div class="event-thumb" style="background-image:url('assets/event2.jpg')"></div>
-            <div>
-              <h3 style="margin:0;font-size:16px">Beat-Making Workshop</h3>
-              <div class="muted">Oct 10, 2:00 PM — Intwana Studio</div>
-            </div>
-          </article>
-
-          <article class="card event-card appear">
-            <div class="event-thumb" style="background-image:url('assets/event3.jpg')"></div>
-            <div>
-              <h3 style="margin:0;font-size:16px">Hack & Design Day</h3>
-              <div class="muted">Oct 11, 9:00 AM — Online</div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" style="margin-top:24px">
-        <h2 style="margin:0 0 12px">Recent Projects</h2>
-        <div class="grid-3">
-          <article class="project card appear">
-            <img src="assets/project1.jpg" alt="Project screenshot" />
-            <div class="meta">
-              <h3 style="margin:0">Intwana Radio Promo</h3>
-              <p class="muted">A small marketing push to showcase local DJs and poets.</p>
-            </div>
-          </article>
-
-          <article class="project card appear">
-            <img src="assets/project2.jpg" alt="Project screenshot" />
-            <div class="meta">
-              <h3 style="margin:0">Heritage Poster Series</h3>
-              <p class="muted">Posters celebrating South African culture and local artists.</p>
-            </div>
-          </article>
-
-          <article class="project card appear">
-            <img src="assets/project3.jpg" alt="Project screenshot" />
-            <div class="meta">
-              <h3 style="margin:0">Studio Night</h3>
-              <p class="muted">Monthly open studio for producers and singers.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" style="margin-top:24px;margin-bottom:8px">
-        <div class="card">
-          <h3>Contact</h3>
-          <p class="muted">Want us to feature your work, rent equipment, or host an event? Email <strong>hello@intwana.co.za</strong> or find us on social platforms below.</p>
-          <div style="margin-top:12px" class="socials">
-            <span class="muted">Twitter • Facebook • Instagram • TikTok</span>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div class="muted">© Intwana 2025 • Built with ❤️ — single-file, no JavaScript</div>
-    </footer>
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Bringing more fun eKasi</h1>
+    <p>Celebrating township culture, creativity, and community through authentic videos and stories.</p>
+    <a href="https://www.youtube.com/@intwanakasi" target="_blank" class="button">Subscribe on YouTube</a>
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: #aaa;">
+      <a href="https://web.facebook.com/Intwana1" target="_blank">Facebook</a> | 
+      <a href="mailto:intwanakasi@gmail.com">Email</a> | 
+      <a href="https://www.tiktok.com/@intwana.yase.kasi7" target="_blank">TikTok</a>
+    </p>
   </div>
+  <div class="hero-video">
+    <iframe src="https://www.youtube.com/embed/PrESyQZUXjQ?list=PLerDEAuY5ofNAXmI9puFs-V5giq4R9K6M" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>Intwana Yase Kasi is a platform dedicated to showcasing township life, talent, and trends. From street interviews to event coverage, we share authentic, relatable, and entertaining content rooted in kasi culture.</p>
+</section>
+
+<section id="videos">
+  <h2>Watch Our Videos</h2>
+  <div class="videos-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/PrESyQZUXjQ" allowfullscreen></iframe>
+      <p>Featured Video</p>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <p>Sample Video</p>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/XqZsoesa55w" allowfullscreen></iframe>
+      <p>Sample Video</p>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="blog-highlights">
+  <h2>Blog & Highlights</h2>
+  <div class="blog-cards">
+    <div class="blog-card">
+      <h4>Behind The Scenes</h4>
+      <p>Go behind the camera and learn how we produce our episodes and engage with our fans on the ground.</p>
+    </div>
+    <div class="blog-card">
+      <h4>Kasi Events You Shouldn't Miss</h4>
+      <p>From street gigs to community festivals, we’re at the heart of it all. Find out what’s happening in your hood.</p>
+    </div>
+    <div class="blog-card">
+      <h4>Spotlight: Local Talent</h4>
+      <p>Meet up-and-coming stars in music, dance, and digital storytelling. See who’s making waves!</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>Join Our Newsletter</h2>
+  <p>Stay updated with the latest videos, blog posts, and events from Intwana Yase Kasi.</p>
+  <form>
+    <input type="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="4" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Intwana Yase Kasi</p>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@intwanakasi" target="_blank" aria-label="YouTube">YT</a>
+    <a href="https://web.facebook.com/Intwana1" target="_blank" aria-label="Facebook">FB</a>
+    <a href="https://www.tiktok.com/@intwana.yase.kasi7" target="_blank" aria-label="TikTok">TT</a>
+    <a href="mailto:intwanakasi@gmail.com" aria-label="Email">EM</a>
+  </div>
+</footer>
+
 </body>
 </html>
