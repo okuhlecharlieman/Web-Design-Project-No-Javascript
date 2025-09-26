@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Intwana — Hub for Creatives</title>
+  <meta name="description" content="Intwana — a hub to promote creativity, positivity and opportunity for artists and tech enthusiasts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Intwana — single-file HTML + CSS (no JS) =====
+       Drop images into an /assets folder and name them: hero.jpg, logo.png, event1.jpg, project1.jpg
+       This file contains all styles inline so you can submit a single index.html to the hackathon.
+    */
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#ff7a59; /* warm orange */
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxwidth:1100px;
+      color-scheme: dark;
+      font-family: 'Inter',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071026 0%, #071626 60%);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{max-width:var(--maxwidth);margin:0 auto;padding:28px}
+
+    /* NAV */
+    header{position:sticky;top:12px;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:14px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:48px;height:48px;border-radius:10px;object-fit:cover}
+    .brand h1{font-size:18px;margin:0;letter-spacing:0.2px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:40px 10px}
+    .hero-inner{display:grid;grid-template-columns:1fr;gap:18px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:18px;backdrop-filter: blur(6px);box-shadow: 0 6px 30px rgba(2,6,23,0.6)}
+    .eyebrow{color:var(--accent);font-weight:700;font-size:13px}
+    .hero h2{font-size:34px;margin:6px 0 0}
+    .hero p{color:var(--muted);margin:0}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff5a80);color:#08121a}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .hero-media{height:260px;border-radius:14px;overflow:hidden;background-size:cover;background-position:center}
+    .hero-media .overlay{padding:18px;color:inherit}
+
+    /* GRID SECTIONS */
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+    /* Cards */
+    .card{background:var(--card);padding:18px;border-radius:14px}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* EVENTS */
+    .event-card{display:flex;gap:12px;align-items:center}
+    .event-thumb{width:86px;height:66px;border-radius:10px;overflow:hidden;flex-shrink:0;background-size:cover;background-position:center}
+
+    /* Projects */
+    .project{border-radius:12px;overflow:hidden}
+    .project img{width:100%;height:160px;object-fit:cover;display:block}
+    .project .meta{padding:12px}
+
+    /* FOOTER */
+    footer{padding:28px 0;margin-top:32px;color:var(--muted)}
+    .socials{display:flex;gap:12px}
+
+    /* small screens */
+    @media (max-width:880px){
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .hero{padding:20px 4px}
+    }
+
+    /* small animations */
+    @keyframes slideUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .appear{animation:slideUp .6s both}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav appear">
+        <div class="brand">
+          <img src="assets/logo.png" alt="Intwana logo" onerror="this.style.display='none'" />
+          <div>
+            <h1>Intwana</h1>
+            <div class="muted" style="font-size:12px">Creatives • Tech • Events</div>
+          </div>
+        </div>
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#events">Events</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" style="margin-top:18px">
+        <div class="hero-inner">
+          <article class="hero-card appear">
+            <div class="eyebrow">Welcome to Intwana</div>
+            <h2>Hub for creativity & opportunity in the kasi.</h2>
+            <p class="muted">We showcase artists, host events, share resources and build community. Explore upcoming hackathons, gigs, and opportunities.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#events">See events</a>
+              <a class="btn btn-ghost" href="#projects">Our projects</a>
+            </div>
+          </article>
+
+          <div class="hero-media project" style="background-image: url('assets/hero.jpg')">
+            <div class="overlay">
+              <h3 style="margin:0">Featured — Intwana Yase Kasi</h3>
+              <p class="muted" style="margin:6px 0 0">Bringing local creatives together through showcases and workshops.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT + QUICK LINKS -->
+      <section id="about" style="margin-top:26px" class="grid-2">
+        <div class="card appear">
+          <h3>About Intwana</h3>
+          <p class="muted">Intwana is a hybrid of an entertainment agency and a creation hub — we uplift local talent, provide production resources, and run community-focused events. Our goal is to make opportunities accessible in the township and beyond.</p>
+        </div>
+
+        <aside class="card appear">
+          <h3>Quick Links</h3>
+          <ul style="padding-left:20px;margin:6px 0;color:var(--muted)">
+            <li>Sign up for events</li>
+            <li>Book equipment</li>
+            <li>Apply for artist spotlight</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- EVENTS -->
+      <section id="events" style="margin-top:24px">
+        <h2 style="margin:0 0 12px">Upcoming Events</h2>
+        <div class="grid-3">
+          <article class="card event-card appear">
+            <div class="event-thumb" style="background-image:url('assets/event1.jpg')"></div>
+            <div>
+              <h3 style="margin:0;font-size:16px">Open Mic Night</h3>
+              <div class="muted">Oct 3, 7:00 PM — Community Hall</div>
+            </div>
+          </article>
+
+          <article class="card event-card appear">
+            <div class="event-thumb" style="background-image:url('assets/event2.jpg')"></div>
+            <div>
+              <h3 style="margin:0;font-size:16px">Beat-Making Workshop</h3>
+              <div class="muted">Oct 10, 2:00 PM — Intwana Studio</div>
+            </div>
+          </article>
+
+          <article class="card event-card appear">
+            <div class="event-thumb" style="background-image:url('assets/event3.jpg')"></div>
+            <div>
+              <h3 style="margin:0;font-size:16px">Hack & Design Day</h3>
+              <div class="muted">Oct 11, 9:00 AM — Online</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" style="margin-top:24px">
+        <h2 style="margin:0 0 12px">Recent Projects</h2>
+        <div class="grid-3">
+          <article class="project card appear">
+            <img src="assets/project1.jpg" alt="Project screenshot" />
+            <div class="meta">
+              <h3 style="margin:0">Intwana Radio Promo</h3>
+              <p class="muted">A small marketing push to showcase local DJs and poets.</p>
+            </div>
+          </article>
+
+          <article class="project card appear">
+            <img src="assets/project2.jpg" alt="Project screenshot" />
+            <div class="meta">
+              <h3 style="margin:0">Heritage Poster Series</h3>
+              <p class="muted">Posters celebrating South African culture and local artists.</p>
+            </div>
+          </article>
+
+          <article class="project card appear">
+            <img src="assets/project3.jpg" alt="Project screenshot" />
+            <div class="meta">
+              <h3 style="margin:0">Studio Night</h3>
+              <p class="muted">Monthly open studio for producers and singers.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" style="margin-top:24px;margin-bottom:8px">
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="muted">Want us to feature your work, rent equipment, or host an event? Email <strong>hello@intwana.co.za</strong> or find us on social platforms below.</p>
+          <div style="margin-top:12px" class="socials">
+            <span class="muted">Twitter • Facebook • Instagram • TikTok</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="muted">© Intwana 2025 • Built with ❤️ — single-file, no JavaScript</div>
+    </footer>
+  </div>
+</body>
+</html>
